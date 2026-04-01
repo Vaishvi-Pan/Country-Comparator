@@ -6,7 +6,7 @@ Ever wondered how India stacks up against Brazil in population, or how many lang
 🔗 API Used
 REST Countries API
 
-Base URL: https://restcountries.com/v3.1/
+Base URL: (https://restcountries.com/v3.1/all)
 No API key required — completely free and open
 Provides data on 250+ countries including flags, population, area, languages, currencies, capital, and region
 
