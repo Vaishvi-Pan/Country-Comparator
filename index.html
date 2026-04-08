@@ -1,105 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Country Search</title>
-    <style>
-        body {
-            font-family: Arial;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-        .search-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        .search-box {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 16px 20px;
-        }
-        .search-box h3 {
-            margin: 0 0 10px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-        select {
-            width: 100%;
-            padding: 8px 10px;
-            font-size: 14px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            background: #fafafa;
-        }
-        .results-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        .result-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 16px 20px;
-            min-height: 80px;
-        }
-        .result-card .placeholder {
-            color: #aaa;
-            font-size: 14px;
-        }
-        .result-card img {
-            width: 90px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            display: block;
-            border: 1px solid #eee;
-        }
-        .result-card p {
-            margin: 5px 0;
-            font-size: 14px;
-            color: #222;
-            line-height: 1.4;
-        }
-        .result-card p span {
-            color: #888;
-            font-size: 13px;
-        }
-        .country-name {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px !important;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Comparer | Compare Global Statistics</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="search-row">
-        <div class="search-box">
-            <h3>Country 1</h3>
-            <select id="sel1" onchange="showCountry('sel1', 'res1')">
-                <option value="">Select a country...</option>
-            </select>
-        </div>
-        <div class="search-box">
-            <h3>Country 2</h3>
-            <select id="sel2" onchange="showCountry('sel2', 'res2')">
-                <option value="">Select a country...</option>
-            </select>
-        </div>
+    <div class="container">
+        <header>
+            <h1>Country Comparer</h1>
+            <p>Analyze and compare statistics between any two nations</p>
+            
+            <div id="comparison-summary" class="summary-box">
+                <!-- Summary text appears here -->
+            </div>
+
+            <div class="action-buttons">
+                <button onclick="randomize()" class="btn-secondary">
+                    <i data-lucide="shuffle"></i> Random Comparison
+                </button>
+            </div>
+        </header>
+
+        <section class="search-grid">
+            <div class="search-card">
+                <label for="sel1">Primary Country</label>
+                <div class="custom-select-container">
+                    <select id="sel1" onchange="showCountry('sel1', 'res1')">
+                        <option value="">Select a country...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="search-card">
+                <label for="sel2">Comparison Country</label>
+                <div class="custom-select-container">
+                    <select id="sel2" onchange="showCountry('sel2', 'res2')">
+                        <option value="">Select a country...</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <main class="results-grid">
+            <div id="res1" class="result-container">
+                <div class="placeholder-card">
+                    <i data-lucide="globe"></i>
+                    <p>Choose the first country</p>
+                </div>
+            </div>
+
+            <div id="res2" class="result-container">
+                <div class="placeholder-card">
+                    <i data-lucide="globe"></i>
+                    <p>Choose the second country</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Country Comparer. Data provided by REST Countries API.</p>
+        </footer>
     </div>
 
-    <div class="results-row">
-        <div class="result-card" id="res1">
-            <p class="placeholder">Select a country above</p>
-        </div>
-        <div class="result-card" id="res2">
-            <p class="placeholder">Select a country above</p>
-        </div>
-    </div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
